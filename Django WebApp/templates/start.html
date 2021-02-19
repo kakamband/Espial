@@ -24,7 +24,7 @@
   <title>
     Home Page
   </title>
-  
+
   <link href="static/assets/img/favicon.png" rel="icon">
   <link href="static/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
@@ -46,5 +46,11 @@
 
 <body>
 </body>
-    Yo its working {% webpush_button %}
+Yo its working {% webpush_button %}
+{%if user.is_authenticated%}
+<a class="nav-item nav-link nav_link" href="{%url 'logout'%}">Logout <i class="fas fa-sign-out-alt"></i></a>
+{%else%}
+<a class="nav-item nav-link nav_link" href="{%url 'login'%}">Login <i class="fas fa-sign-in-alt"></i></a>
+{%endif%}
+
 </html>

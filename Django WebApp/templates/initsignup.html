@@ -1,0 +1,26 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block title%}
+SignUp
+{%endblock title%}
+{%block link%}
+<link href="{%static 'stylesheet/signup.css'%}" rel="stylesheet">
+<link rel='stylesheet' href='{%static "stylesheet/snackbar.css"%}'>
+<script src="{%static 'js/snack.js'%}"></script>
+{%endblock link%}
+
+{%block content%}
+<!--<div class= "bg-image-blur"></div>-->
+<div class="row reg_box">
+    <form method="post">
+        {% csrf_token %}
+        {% for field in f_login %}
+        <div class="login_field">
+            {{ field.label_tag }}<br>
+            {{ field }}
+        </div>
+        {% endfor %}
+        <input type="submit" class="submit_btn my-3" value="Login" name="submit" />
+    </form>
+</div>
+{%endblock content%}
