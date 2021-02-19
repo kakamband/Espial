@@ -1,0 +1,11 @@
+# Removing all Cache Files
+*.pyc
+
+# Credential File
+KU/cred.py
+
+# Temporary DB
+db.sqlite3
+
+# Further Cleansing
+__init__.py
