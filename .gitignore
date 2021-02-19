@@ -2,7 +2,7 @@
 *.pyc
 
 # Credential File
-KU/cred.py
+cred.py
 
 # Temporary DB
 db.sqlite3
