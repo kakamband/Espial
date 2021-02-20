@@ -9,7 +9,7 @@ User = get_user_model()
 
 
 def HomeView(request):
-    return render(request, 'start.html')
+    return render(request, 'home.html')
 
 
 @csrf_exempt

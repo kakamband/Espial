@@ -1,0 +1,625 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Cache-control" content="public">
+  <meta charset="UTF-8">
+  <meta name="description" content="Testing Webiste for Team Visionary's Project Interstice">
+  <meta name="keywords" content="Model Website, Keras, Tensorflow">
+  <meta name="author" content="Avishrant Sharma, Spriha Gautam, Ritik Dhiman, Aditi Agarwal">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#FFFFFF">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Project Interstice">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta property="og:image" content="static/assets/img/favicon.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="512">
+  <meta property="og:image:height" content="512">
+  <!-- Service Worker Registration -->
+  <title>
+    Home Page
+  </title>
+  <link rel='stylesheet' href='{%static "style/base.css"%}'>
+  <link rel='stylesheet' href='{%static "style/scroll.css"%}'>
+  <link href="static/assets/img/favicon.png" rel="icon">
+  <link href="static/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <script src="https://kit.fontawesome.com/78ee6916f8.js" crossorigin="anonymous"></script>
+  <link href="static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="static/assets/vendor/line-awesome/css/line-awesome.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/venobox/venobox.css" rel="stylesheet">
+  <link href="static/assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/aos/aos.css" rel="stylesheet">
+  <script type="text/javascript">
+    // Initialize the service worker
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/serviceworker.js').then(function (registration) {
+        // Registration was successful
+        console.log('portfolio-progressive-web-app: ServiceWorker registration successful');
+      }, function (err) {
+        // registration failed :(
+        console.log('portfolio-progressive-web-app: ServiceWorker registration failed: ', err);
+      });
+    }
+
+  </script>
+
+</head>
+
+<body>
+  <header id="header" class="fixed-top d-flex align-items-center  header-transparent ">
+    <div class="container-fluid d-flex align-items-center justify-content-between">
+
+      <div class="logo">
+        <a href="{%url 'home'%}">
+          <h1 class="text-light mx-3" style="display: inline-block; font-family: 'Open Sans';">Interstice</h1>
+        </a>
+      </div>
+
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          <li class="active"><a href="#hero">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Tech Stack</a></li>
+          <li><a href="#portfolio">Results</a></li>
+          <li><a href="#team">Team</a></li>
+        </ul>
+      </nav><!-- .nav-menu -->
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex flex-column justify-content-end align-items-center">
+    <div id="heroCarousel" data-bs-interval="5000" class="container carousel carousel-fade" data-bs-ride="carousel">
+
+      <!-- Slide 1 -->
+      <div class="carousel-item active">
+        <div class="carousel-container">
+          <h2 class="animate__animated animate__fadeInDown">Team <span>Visionary</span></h2>
+          <p class="animate__animated fanimate__adeInUp msg_call">Unfurling the Incognizance of Reality</p>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="carousel-item">
+        <div class="carousel-container">
+          <h2 class="animate__animated animate__fadeInDown">Problem</h2>
+          <p class="animate__animated animate__fadeInUp msg_call">Surveillance ensures safety.
+            Thus, CCTV Cameras are installed everywhere. But who is really looking at their footages prior to an incident?
+            Are they just an evidence collecting source?
+          </p>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="carousel-item">
+        <div class="carousel-container">
+          <h2 class="animate__animated animate__fadeInDown">Our Solution</h2>
+          <p class="animate__animated animate__fadeInUp msg_call">Converting a CCTV survellience from an evidence collection device to a 
+            crime prevention and detection tool to ensure safety and security.</p>
+          <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
+        </div>
+      </div>
+
+      <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev"
+        onclick="$('#myCarousel').carousel('prev')">
+        <span class="carousel-control-prev-icon bx bx-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+
+      <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next"
+        onclick="$('#myCarousel').carousel('next')">
+        <span class="carousel-control-next-icon bx bx-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+
+    </div>
+
+    <svg class="hero-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+      viewBox="0 24 150 28 " preserveAspectRatio="none">
+      <defs>
+        <path id="wave-path" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z">
+      </defs>
+      <g class="wave1">
+        <use xlink:href="#wave-path" x="50" y="3" fill="rgba(255,255,255, .1)">
+      </g>
+      <g class="wave2">
+        <use xlink:href="#wave-path" x="50" y="0" fill="rgba(255,255,255, .2)">
+      </g>
+      <g class="wave3">
+        <use xlink:href="#wave-path" x="50" y="9" fill="#fff">
+      </g>
+    </svg>
+
+  </section><!-- End Hero -->
+
+  <main id="main">
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
+
+        <div class="section-title" data-aos="zoom-out">
+          <h2>About</h2>
+          <p> Our Motive</p>
+        </div>
+
+        <div class="row content" data-aos="fade-up">
+          <div class="col-lg-6">
+            <h5><b>
+                The main motive behind building this project includes:
+            </h5></b>
+            <ul>
+              <li><i class="ri-check-double-line"></i> Narrow down the Crime rates and ensure that law is enforced.
+              </li>
+              <li><i class="ri-check-double-line"></i>Decreasing the assaults taking place on a daily basis thereby
+                providing a safe environment to women and children so that they can feel a sense of security outside of
+                their homes too.
+              </li>
+              <li><i class="ri-check-double-line"></i>Reduce the labor and toil of human effort and automate the whole
+                process. </li>
+            </ul>
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0" style="padding-top: 500px; margin-top: 25px;">
+            <p>
+              The motive behind our idea is to reduce the crime and assaults trudging on the road on a daily basis which
+              goes undetected. We aim to reduce the lengthy and tedious process of observing each CCTV Footage and
+              rather make the whole process in a real time frame so that the deed is detected before its too late!
+
+            </p>
+          </div>
+        </div>
+
+      </div>
+      <!-- ======= Features Section ======= -->
+      <div class="container features my-5">
+
+        <ul class="nav nav-tabs row d-flex">
+          <li class="nav-item col-3" data-aos="zoom-in">
+            <a class="nav-link active show" data-bs-toggle="tab" href="#tab-1">
+              <i class="ri-body-scan-line"></i>
+              <h4 class="d-none d-lg-block">WOMEN SECURITY</h4>
+            </a>
+          </li>
+          <li class="nav-item col-3" data-aos="zoom-in" data-aos-delay="100">
+            <a class="nav-link" data-bs-toggle="tab" href="#tab-2">
+              <i class="ri-briefcase-2-line"></i>
+              <h4 class="d-none d-lg-block">CHILD SAFETY</h4>
+            </a>
+          </li>
+          <li class="nav-item col-3" data-aos="zoom-in" data-aos-delay="200">
+            <a class="nav-link" data-bs-toggle="tab" href="#tab-3">
+              <i class="ri-home-wifi-line"></i>
+              <h4 class="d-none d-lg-block">PRIVATE/HOME PROTECTION</h4>
+            </a>
+          </li>
+          <li class="nav-item col-3" data-aos="zoom-in" data-aos-delay="300">
+            <a class="nav-link" data-bs-toggle="tab" href="#tab-4">
+              <i class="ri-building-line"></i>
+              <h4 class="d-none d-lg-block">PUBLIC PROTECTION</h4>
+            </a>
+          </li>
+        </ul>
+
+        <div class="tab-content" data-aos="fade-up">
+          <div class="tab-pane active show" id="tab-1">
+            <div class="row">
+              <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
+                <h3>Street Violence takes a variety of forms including homicide, rape, robbery, assaults etc.</h3>
+                <br>
+
+                <p class="font-italic">
+                  The incidents of Street Violence resonate through out the world and the women community is worst
+                  affected by the lack of an efficient monitoring system resulting in hostile situations.
+                </p>
+                <ul>
+                  <li><i class="ri-check-double-line"></i> A survey conducted by Stop Street Harassment Report reveiled
+                    that
+                    65% of women in US have experienced some kind of Street Violence</li>
+                  <li><i class="ri-check-double-line"></i> In India, a woman faces harassment in public places every 51
+                    minutes. </li>
+                  <li><i class="ri-check-double-line"></i> According to National Crime Records Bureau (NCRB), there were
+                    36,735 cases of rape across desolate streets and places.</li>
+                </ul>
+                <p>
+                  The findings reveal that the public spaces of India suffer from a 'culture of misogny' indicating high
+                  prevalence of Street Violence that cut across all sections of women.
+                </p>
+              </div>
+              <div class="col-lg-6 order-1 order-lg-2 text-center">
+                <img src="static/assets/img/features-2.png" alt="" class="img-fluid">
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane" id="tab-2">
+            <div class="row">
+              <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
+                <h3>Lack of a Proper Surveillance system has affected every generation.</h3>
+                <br>
+                <p>
+                  Innumerable children face abuse in public places which goes undetected and unreported due
+                  to the rigid and worn out process of CCTV cameras and all crimes are pushed deep down in oblivion.
+                </p>
+
+                <ul>
+                  <li><i class="ri-check-double-line"></i> In 1994, an estimated 1.4 million people were treated in
+                    hospital emergency departments for violence-related injuries. Nearly one-half of all the injuries
+                    treated occurred in public buildings or on the street.</li>
+                  <li><i class="ri-check-double-line"></i>In 2007, students between the ages of 12 to 18 were victims of
+                    about 1.5
+                    million non-fatal crimes when they were at school, compared to about 1.1 million non-fatal crimes
+                    while they were away from school.</li>
+                  <li><i class="ri-check-double-line"></i> Among high school students in grades 9-12, nearly 12% got
+                    into a fight
+                    on school property.</li>
+
+                </ul>
+              </div>
+              <div class="col-lg-6 order-1 order-lg-2 text-center">
+                <img src="static/assets/img/child.png" alt="" class="img-fluid">
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane" id="tab-3">
+            <div class="row">
+              <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
+                <h3>When Violence becomes the last refuge of Incompetent Householdes.</h3>
+                <br>
+                <p>
+                  Domestic violence has serious economic, social and health consequences. It is an acute problem in
+                  India. NFHS data indicate that over
+                  30% of Indian women have been physically, sexually or emotionally abused by their husbands at some
+                  point in their lives.
+
+                </p>
+                <ul>
+                  <li><i class="ri-check-double-line"></i>Between 2004 and 2008, about 1 in 3 violent crimes occurred in
+                    or near the victim’s own home.</li>
+                  <li><i class="ri-check-double-line"></i>Almost two thirds of all property crimes took place in or near
+                    the home of the household members. </li>
+                  <li><i class="ri-check-double-line"></i>About 10% of personal thefts occurred in or near the victim’s
+                    home or the home of a friend or neighbor.</li>
+                </ul>
+
+              </div>
+              <div class="col-lg-6 order-1 order-lg-2 text-center">
+                <img src="static/assets/img/features-3.png" alt="" class="img-fluid">
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane" id="tab-4">
+            <div class="row">
+              <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
+                <h3> The Number and Underscore of Public Violence.</h3>
+                <br>
+                <ul>
+                  <li><i class="ri-check-double-line"></i> From 1993- 1999, "Workplace Violence" accounted
+                    for 18% of all violent crime.</li>
+                  <li><i class="ri-check-double-line"></i> According to NCVS, there are over 1.7 million victims of
+                    violence
+                    annually including 325,000 aggravated assaults, 36,500 rapes and sexual assaults, 70,000 robberies
+                    and 900 homicides.
+                  </li>
+                  <li><i class="ri-check-double-line"></i>In 2019, FBI reported a total of 2,109.9 property crimes
+                    per 100,000 people.</li>
+                </ul>
+              </div>
+              <div class="col-lg-6 order-1 order-lg-2 text-center">
+                <img src="static/assets/img/features-4.jpg" alt="" class="img-fluid">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services">
+      <div class="container">
+
+        <div class="section-title" data-aos="zoom-out">
+          <!-- <h2>Services</h2> -->
+          <p>TECH STACK</p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-4 col-md-6">
+            <div class="icon-box" data-aos="zoom-in-left">
+              <div class="icon"><i class="las la-chalkboard" style="color: #ff689b;"></i></div>
+              <h4 class="title"><a href="">Machine & Deep Learning</a></h4>
+              <p class="description">For this project, we used TensorFlow: an end-to-end open source platform for
+                machine learning
+                with comprehensive and flexible tools, libraries and high-level APIs like Keras to build and train our
+                ML
+                model.
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mt-5 mt-md-0">
+            <div class="icon-box" data-aos="zoom-in-left" data-aos-delay="100">
+              <div class="icon"><i class="las la-eye" style="color: #e9bf06;"></i></div>
+              <h4 class="title"><a href="">OPEN-CV</a></h4>
+              <p class="description">OpenCV (Open Source Computer Vision Library) is an open source computer vision
+                library which was used to detect activities in a crowded area and narrow down the region of search.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 mt-5 mt-lg-0 ">
+            <div class="icon-box" data-aos="zoom-in-left" data-aos-delay="200">
+              <div class="icon"><i class="las la-globe" style="color: #3fcdc7;"></i></div>
+              <h4 class="title"><a href="">WEB DEVELOPMENT</a></h4>
+              <p class="description">To increase the effectiveness of our presentation, we developed a mini-website
+                powered by Django framework, with the Tensorflow model at its heart.</p>
+            </div>
+          </div>
+
+        </div>
+    </section>
+
+    <!-- ======= Portfolio Section ======= -->
+    <section id="portfolio" class="portfolio">
+      <div class="container">
+
+        <div class="section-title" data-aos="zoom-out">
+          <h2>Results</h2>
+          <p>Samples </p>
+        </div>
+        <ul id="portfolio-flters" class="d-flex justify-content-end" data-aos="fade-up">
+          <li data-filter="*" class="filter-active">All</li>
+          <li data-filter=".filter-app">Violence</li>
+          <li data-filter=".filter-card">Non-Violence</li>
+          <!-- <li data-filter=".filter-web">Web</li> -->
+        </ul>
+
+        <div class="row portfolio-container" data-aos="fade-up">
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-img"><img src="static/assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
+            </div>
+            <div class="portfolio-info">
+              <h4>App 1</h4>
+              <p>App</p>
+              <a href="static/assets/img/portfolio/portfolio-1.jpg" data-gall="portfolioGallery"
+                class="venobox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
+              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <div class="portfolio-img"><img src="static/assets/img/portfolio/portfolio-2.jpg" class="img-fluid" alt="">
+            </div>
+            <div class="portfolio-info">
+              <h4>Web 3</h4>
+              <p>Web</p>
+              <a href="static/assets/img/portfolio/portfolio-2.jpg" data-gall="portfolioGallery"
+                class="venobox preview-link" title="Web 3"><i class="bx bx-plus"></i></a>
+              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-img"><img src="static/assets/img/portfolio/portfolio-3.jpg" class="img-fluid" alt="">
+            </div>
+            <div class="portfolio-info">
+              <h4>App 2</h4>
+              <p>App</p>
+              <a href="static/assets/img/portfolio/portfolio-3.jpg" data-gall="portfolioGallery"
+                class="venobox preview-link" title="App 2"><i class="bx bx-plus"></i></a>
+              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+            <div class="portfolio-img"><img src="static/assets/img/portfolio/portfolio-4.jpg" class="img-fluid" alt="">
+            </div>
+            <div class="portfolio-info">
+              <h4>Card 2</h4>
+              <p>Card</p>
+              <a href="static/assets/img/portfolio/portfolio-4.jpg" data-gall="portfolioGallery"
+                class="venobox preview-link" title="Card 2"><i class="bx bx-plus"></i></a>
+              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <div class="portfolio-img"><img src="static/assets/img/portfolio/portfolio-5.jpg" class="img-fluid" alt="">
+            </div>
+            <div class="portfolio-info">
+              <h4>Web 2</h4>
+              <p>Web</p>
+              <a href="static/assets/img/portfolio/portfolio-5.jpg" data-gall="portfolioGallery"
+                class="venobox preview-link" title="Web 2"><i class="bx bx-plus"></i></a>
+              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-img"><img src="static/assets/img/portfolio/portfolio-6.jpg" class="img-fluid" alt="">
+            </div>
+            <div class="portfolio-info">
+              <h4>App 3</h4>
+              <p>App</p>
+              <a href="static/assets/img/portfolio/portfolio-6.jpg" data-gall="portfolioGallery"
+                class="venobox preview-link" title="App 3"><i class="bx bx-plus"></i></a>
+              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+            <div class="portfolio-img"><img src="static/assets/img/portfolio/portfolio-7.jpg" class="img-fluid" alt="">
+            </div>
+            <div class="portfolio-info">
+              <h4>Card 1</h4>
+              <p>Card</p>
+              <a href="static/assets/img/portfolio/portfolio-7.jpg" data-gall="portfolioGallery"
+                class="venobox preview-link" title="Card 1"><i class="bx bx-plus"></i></a>
+              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+            <div class="portfolio-img"><img src="static/assets/img/portfolio/portfolio-8.jpg" class="img-fluid" alt="">
+            </div>
+            <div class="portfolio-info">
+              <h4>Card 3</h4>
+              <p>Card</p>
+              <a href="static/assets/img/portfolio/portfolio-8.jpg" data-gall="portfolioGallery"
+                class="venobox preview-link" title="Card 3"><i class="bx bx-plus"></i></a>
+              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <div class="portfolio-img"><img src="static/assets/img/portfolio/portfolio-9.jpg" class="img-fluid" alt="">
+            </div>
+            <div class="portfolio-info">
+              <h4>Web 3</h4>
+              <p>Web</p>
+              <a href="static/assets/img/portfolio/portfolio-9.jpg" data-gall="portfolioGallery"
+                class="venobox preview-link" title="Web 3"><i class="bx bx-plus"></i></a>
+              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======= Team Section ======= -->
+    <section id="team" class="team">
+      <div class="container">
+
+        <div class="section-title" data-aos="zoom-out">
+          <h2>Team</h2>
+          <p>Our Team</p>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+            <div class="member" data-aos="fade-up">
+              <div class="member-img">
+                <img src="static/assets/img/team/aditi.jpg" class="img-fluid" alt="">
+                <div class="social">
+                  <a href="https://github.com/Aditi0102" target="_blank" rel="noreferrer"><i
+                      class="fab fa-github"></i></a>
+                  <a href="https://www.instagram.com/aditi_agrawal_20/" target="_blank" rel="noreferrer"><i
+                      class="icofont-instagram"></i></a>
+                  <a href="https://www.linkedin.com/in/aditi0102/" target="_blank" rel="noreferrer"><i
+                      class="icofont-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4> Aditi Agarwal</h4>
+                <span>ECE(2ND YEAR)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+            <div class="member" data-aos="fade-up" data-aos-delay="100">
+              <div class="member-img">
+                <img src="static/assets/img/team/avishrant.jpg" class="img-fluid" alt="">
+                <div class="social">
+                  <a href="https://github.com/AvishrantsSh" target="_blank" rel="noreferrer"><i
+                      class="fab fa-github"></i></i></a>
+                  <a href="https://www.instagram.com/avishrant_sh/" target="_blank" rel="noreferrer"><i
+                      class="icofont-instagram"></i></a>
+                  <a href="https://www.linkedin.com/in/avishrant-sharma-1158591a2/" target="_blank" rel="noreferrer"><i
+                      class="icofont-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4>Avishrant Sharma</h4>
+                <span>CSE(2ND YEAR)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+            <div class="member" data-aos="fade-up" data-aos-delay="200">
+              <div class="member-img">
+                <img src="static/assets/img/team/ritik.jpg" class="img-fluid" alt="">
+                <div class="social">
+                  <a href="https://github.com/ritikdh440" target="_blank" rel="noreferrer"><i
+                      class="fab fa-github"></i></a>
+                  <a href="https://www.instagram.com/ritik.dhiman/" target="_blank" rel="noreferrer"><i
+                      class="icofont-instagram"></i></a>
+                  <a href="https://www.linkedin.com/in/ritik-dhiman/" target="_blank" rel="noreferrer"><i
+                      class="icofont-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4>Ritik Dhiman</h4>
+                <span>ECE(2ND YEAR)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+            <div class="member" data-aos="fade-up" data-aos-delay="300">
+              <div class="member-img">
+                <img src="static/assets/img/team/spriha.jpg" class="img-fluid" alt="">
+                <div class="social">
+                  <a href="https://github.com/sprihagautam12" target="_blank" rel="noreferrer"><i
+                      class="fab fa-github"></i></a>
+                  <a href="https://www.instagram.com/spriha_gautam/" target="_blank" rel="noreferrer"><i
+                      class="icofont-instagram"></i></a>
+                  <a href="https://www.linkedin.com/in/sprihagautam/" target="_blank" rel="noreferrer"><i
+                      class="icofont-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4>Spriha Gautam</h4>
+                <span>CSE(2ND YEAR)</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <h3>Team Visionary</h3>
+      <p>Unfurling the Incognizance of Reality.</p>
+
+      <div class="copyright">
+        &copy; Copyright <strong><span>Team Visionary</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top"><i class="ri-arrow-up-line"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="static/assets/vendor/jquery/jquery.min.js"></script>
+  <script src="static/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="static/assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="static/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="static/assets/vendor/venobox/venobox.min.js"></script>
+  <script src="static/assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+  <script src="static/assets/vendor/aos/aos.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="static/assets/js/main.js"></script>
+</body>

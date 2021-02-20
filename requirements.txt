@@ -3,5 +3,3 @@ gunicorn
 django-webpush
 django_heroku
 six
-asyncio
-aiohttp
