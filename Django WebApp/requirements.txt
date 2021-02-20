@@ -1,5 +1,0 @@
-django
-gunicorn
-django-webpush
-django_heroku
-six

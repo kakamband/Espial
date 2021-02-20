@@ -1,69 +1,84 @@
-import tensorflow as tf
 from tensorflow import keras
 import numpy as np
-import cv2
-import requests
+import cv2, requests
 from threading import Thread
+from config import *
 
 def notify():
-    data = {"token": "03382f1d-0369-418c-93ba-e8eaa3d40000",
-            "head": "TestNotification", "body": "Just a Test"}
+    data = {"token": "03382f1d-0369-418c-93ba-e8eaa3d40000"}
     url = "https://trial-ku.herokuapp.com/notify/"
-    response = requests.post(url, data)
+    with open(FILE_PATH, 'rb') as f:
+        response = requests.post(url, data = data)
+
     print(response.json())
 
-
-model = keras.models.load_model('./Models/CustomisedCNNModel.h5')
+model = keras.models.load_model('./Models/BaseModel.h5')
 sent = False
-url = './Data/Dummy/1.mp4'
-font = cv2.FONT_HERSHEY_SIMPLEX
-org = (10, 40)
-fontScale = 0.7
-thickness = 1
-SIZE = (150, 150)
-THRESH = 0.5
 
 # Live Generator
+fc = 0
+predictions = []
+sus_count = 0
+rec = False
+cycler = REC_FRAME
 vid = cv2.VideoCapture(url)
-f_stat = False
-x = []
-fcount = 0
 while (cv2.waitKey(1) == -1):
     ret, frame = vid.read()
     if not ret:
         break
-    tmp = cv2.resize(frame, SIZE)
-    tmp = tmp / 255.0
-    pred = model.predict(np.array([tmp]))
-
-    if fcount > 2:
-        pred = pred[0][0]
-        final = x[0] + x[1] + pred
-        final /= 3
+    
+    if fc % 2 == 0:
+        tmp = cv2.resize(frame, SIZE)
+        tmp = tmp / 255.0
+        pred = model.predict(np.array([tmp]))
+        final = pred[0][0]
+        predictions.append(final)
+        if fc > F_AVG:
+            for i in range(fc-F_AVG, fc):
+                final += predictions[i]
+            
+            final /= F_AVG
 
     else:
-        pred = pred[0][0]
-        final = pred
+        final = predictions[-1]
+        predictions.append(final)
 
-    x.insert(fcount % 2, pred)
+    if fc <= NOTIFY_THRESH:
+            sus_count += final
+    else:
+        sus_count = sus_count - predictions[fc-NOTIFY_THRESH] + final
+        if sus_count/fc > THRESH:
+            if not sent:
+                sent = True
+                rec = True
+    if rec:
+        if out is None:
+            out = cv2.VideoWriter(FILE_PATH, fourcc, 24, OUTPUT)
+        if cycler > 0:
+            ffff = cv2.resize(frame, OUTPUT)
+            out.write(ffff)
+            cycler -= 1
+        else:
+            cycler = REC_FRAME
+            rec = False
+            out.release()
+            t1 = Thread(target=notify)
+            t1.start()
 
     if final > THRESH:
-        string = "Suspicious"
-        if not sent:
-            t1 = Thread(target=notify)
-            sent = True
-            t1.start()
-            t1.join()
+        string = "Suspicious "
 
     else:
-        string = "Peaceful"
+        string = "Peaceful "
 
-    string += f" {str(final)}"
+    # Showing Frames
+    string += str(final)
     color = (0, 0, 255) if final > THRESH else (255, 0, 0)
     frame = cv2.putText(frame, string, org, font, fontScale,
                         color, thickness, cv2.LINE_AA)
     cv2.imshow("Video", frame)
-    fcount += 1
+    fc += 1
 
 vid.release()
 cv2.destroyAllWindows()
+
