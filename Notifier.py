@@ -1,4 +1,3 @@
-from Authenticator import Authenticate
 import requests
 import sys
 
@@ -8,9 +7,9 @@ except:
     token = input("Enter Token: ")
 
 data = {"token": token}
-# url = "https://trial-ku.herokuapp.com/accounts/token/"
+url = "https://trial-ku.herokuapp.com/notify/"
 
-url = "http://localhost:8000/notify/"
+# url = "http://localhost:8000/notify/"
 response = requests.post(url, data)
 try:
     js_obj = response.json()
