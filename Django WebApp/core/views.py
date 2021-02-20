@@ -13,18 +13,21 @@ def HomeView(request):
 def Notify(request):
     if request.method == "POST":
         try:
-            user = request.POST['user']
-            user = User.objects.get(email = user)
+            token = request.POST['token']
+            try:
+                user = User.objects.get(token = token)
+            
+            except User.DoesNotExist:
+                return JsonResponse({'status': 403, "message": "Access Denied"})
+            
             head = request.POST['head']
             body = request.POST['body']
-        except:
-            user = request.user
-            head = "Aur Janab"
-            body = "Yo"
+            payload = {"head": head, "body": body, "icon": "https://i.imgur.com/dRDxiCQ.png", "url": "https://www.example.com"}
+            send_user_notification(user=user, payload=payload, ttl=1000)
+            return JsonResponse({'status': 200, "message": "Notifier Started"})
 
-        payload = {"head": head, "body": body, "icon": "https://i.imgur.com/dRDxiCQ.png", "url": "https://www.example.com"}
-        send_user_notification(user=user, payload=payload, ttl=1000)
-        return JsonResponse(payload)
+        except:
+            return JsonResponse({'status':403, 'message': 'Forbidden'})
 
     return JsonResponse({'message': 'You have been judged'})
 

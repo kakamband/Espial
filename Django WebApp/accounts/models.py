@@ -1,5 +1,6 @@
 from django.contrib.auth.models import AbstractUser, BaseUserManager
 from django.db import models
+from uuid import uuid4
 
 class UserManager(BaseUserManager):
     use_in_migrations = True
@@ -32,8 +33,10 @@ class UserManager(BaseUserManager):
         return self._create_user(email, password, **extra_fields)
 
 class User(AbstractUser):
+    id = models.UUIDField(primary_key=True, default=uuid4)
     username = None
     email = models.EmailField('email address', unique=True)
+    token = models.UUIDField(default=uuid4, unique=True)
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
     objects = UserManager()

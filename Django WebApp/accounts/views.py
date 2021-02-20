@@ -1,31 +1,47 @@
 from django.shortcuts import render, redirect
+from django.http import JsonResponse
 from django.contrib.auth import get_user_model, login, logout
 from .forms import CustomAuthenticationForm
-import csv, json
+import csv
+import json
+from uuid import uuid4
+from django.views.decorators.csrf import csrf_exempt
 
-User=get_user_model()
+User = get_user_model()
 
 def SignUp(request):
     if request.method == 'POST':
-        f_login = CustomAuthenticationForm()
-
+        # f_login = CustomAuthenticationForm()
         if request.POST.get('submit') == 'Login':
-            f_login = CustomAuthenticationForm(data = request.POST)
+            f_login = CustomAuthenticationForm(data=request.POST)
             if f_login.is_valid():
                 user = f_login.get_user()
                 login(request, user)
                 try:
                     url = request.GET['next']
                 except:
-                    url ='home'
-                return redirect(url)                
+                    url = 'home'
+                return redirect(url)
     else:
         f_login = CustomAuthenticationForm()
-    
+
     return render(request, 'initsignup.html', {'f_login': f_login})
 
 def Logout(request):
     logout(request)
     return redirect('home')
-    
+
+@csrf_exempt
+def getToken(request):
+    if request.method == 'POST':
+        f_login = CustomAuthenticationForm(data=request.POST)
+        if f_login.is_valid():
+            user = f_login.get_user()
+            login(request, user)
+            token = user.token
+            return JsonResponse({'status': 200, 'message': 'Logged In', 'token': token})
+
+        return JsonResponse({'status': 403, 'message': 'Access Denied'})
+
+    return JsonResponse({'status': 403, 'message': 'Invalid Request'})
 # Create your views here.
