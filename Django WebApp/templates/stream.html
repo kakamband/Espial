@@ -1,8 +1,9 @@
-<html>
-  <head>
-    <title>Something to be done</title>
-  </head>
-  <body>
+{%extends 'base.html'%}
+{%load static%}
+{%block title%}Stream{%endblock title%}
+{%block link%}
+<link rel="stylesheet" href='{%static "style/stream.css"%}' />
+{%endblock link%}
+{%block content%}
     <a href="{{vid_url}}"><button>Download Preview</button></a>
-  </body>
-</html>
+{%endblock content%}

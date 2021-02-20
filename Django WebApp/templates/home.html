@@ -1,4 +1,6 @@
 {%load static%}
+{% load webpush_notifications %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -43,6 +45,8 @@
   <link href="static/assets/vendor/venobox/venobox.css" rel="stylesheet">
   <link href="static/assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
   <link href="static/assets/vendor/aos/aos.css" rel="stylesheet">
+  {% webpush_header %}
+
   <script type="text/javascript">
     // Initialize the service worker
     if ('serviceWorker' in navigator) {
@@ -76,6 +80,12 @@
           <li><a href="#services">Tech Stack</a></li>
           <li><a href="#portfolio">Results</a></li>
           <li><a href="#team">Team</a></li>
+          {%if user.is_authenticated%}
+          <li><a href="{%url 'profile'%}">Profile</a></li>
+          <li><a href="{%url 'logout'%}">Logout</a></li>
+          {%else%}
+          <li><a href="{%url 'login'%}">Login</a></li>
+          {%endif%}
         </ul>
       </nav><!-- .nav-menu -->
     </div>
@@ -157,7 +167,7 @@
           <h2>About</h2>
           <p> Our Motive</p>
         </div>
-
+        
         <div class="row content" data-aos="fade-up">
           <div class="col-lg-6">
             <h5><b>
@@ -181,24 +191,12 @@
               the assualt and mishappenings in and around the resedential areas and get immediate alerts of any breach
               of privacy and safety directly in your cell phones.
             </p>
-            <!-- </p>
-            The envisioned goal is achieved by first capturing the frames and training the model and in real-time
-            detecting if the activity can be termed as suspicious or not. If the output comes out to be suspicious,
-            the system immedialtely sends a notification to the concerned authority alerting them of the crime taking
-            place. And an immediate action can be taken to prevent any rampage taking place.
-
-            </p> -->
           </div>
         </div>
 
       </div>
 
-
-
-
-
       <!-- ======= Features Section ======= -->
-
 
       <div class="container features my-5">
 
@@ -357,12 +355,12 @@
             <!-- <h2>Services</h2> -->
             <p>TECH STACK</p>
           </div>
-
+          {% webpush_button %}
           <div class="row">
             <div class="col-lg-4 col-md-6">
               <div class="icon-box" data-aos="zoom-in-left">
                 <div class="icon"><i class="las la-chalkboard" style="color: #ff689b;"></i></div>
-                <h4 class="title"><a href="">Machine & Deep Learning</a></h4>
+                <h4 class="title"><a href="">Tensorflow</a></h4>
                 <p class="description">For this project, we used TensorFlow: an end-to-end open source platform for
                   machine learning
                   with comprehensive and flexible tools, libraries and high-level APIs like Keras to build and train
@@ -385,58 +383,44 @@
             <div class="col-lg-4 col-md-6 mt-5 mt-lg-0 ">
               <div class="icon-box" data-aos="zoom-in-left" data-aos-delay="200">
                 <div class="icon"><i class="las la-globe" style="color: #3fcdc7;"></i></div>
-                <h4 class="title"><a href="">WEB DEVELOPMENT</a></h4>
-                <p class="description">To increase the effectiveness of our presentation, we developed a mini-website
-                  powered by Django framework, with the Tensorflow model at its heart.</p>
+                <h4 class="title"><a href="">Django</a></h4>
+                <p class="description">Django is a high-level Python web framework that enables rapid development of
+                  secure and maintainable websites. It is the core of our project that maintains a sync between all
+                  processes.</p>
               </div>
             </div>
-
-            <div class="row">
-              <div class="col-lg-4 col-md-6">
-                <div class="icon-box" data-aos="zoom-in-left">
-                  <div class="icon"><i class="las la-sliders-h" style="color: #ff689b;"></i></div>
-                  <h4 class="title"><a href="">Django</a></h4>
-                  <p class="description">Django is a high-level Python web framework that enables rapid development of
-                    secure and maintainable websites
-                  </p>
-                </div>
-              </div>
-
-              
-
-              </div>
-
       </section>
 
-     <!-- ======= Portfolio Section ======= -->
-    <section id="portfolio" class="portfolio">
-      <div class="container">
+      <!-- ======= Portfolio Section ======= -->
+      <section id="portfolio" class="portfolio">
+        <div class="container">
 
-        <div class="section-title" data-aos="zoom-out">
-          <h2>Results</h2>
-          <p>Samples </p>
-        </div>
-        <ul id="portfolio-flters" class="d-flex justify-content-end" data-aos="fade-up">
-          <li data-filter="*" class="filter-active">All</li>
-          <!-- <li data-filter=".filter-app">Violence</li>
-          <li data-filter=".filter-card">Non-Violence</li> -->
-          <!-- <li data-filter=".filter-web">Web</li> -->
-        </ul>
-
-        <div class="row portfolio-container" data-aos="fade-up">
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-img"><img src="static/assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
-            </div>
-            <div class="portfolio-info">
-              
-              <a href="static/assets/img/portfolio/portfolio-1.jpg" data-gall="portfolioGallery"
-                class="venobox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
-              
-            </div>
+          <div class="section-title" data-aos="zoom-out">
+            <h2>Results</h2>
+            <p>Samples </p>
           </div>
+          <ul id="portfolio-flters" class="d-flex justify-content-end" data-aos="fade-up">
+            <li data-filter="*" class="filter-active">All</li>
+            <!-- <li data-filter=".filter-app">Violence</li>
+          <li data-filter=".filter-card">Non-Violence</li> -->
+            <!-- <li data-filter=".filter-web">Web</li> -->
+          </ul>
 
-          <!-- <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+          <div class="row portfolio-container" data-aos="fade-up">
+
+            <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+              <div class="portfolio-img"><img src="static/assets/img/portfolio/portfolio-1.jpg" class="img-fluid"
+                  alt="">
+              </div>
+              <div class="portfolio-info">
+
+                <a href="static/assets/img/portfolio/portfolio-1.jpg" data-gall="portfolioGallery"
+                  class="venobox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
+
+              </div>
+            </div>
+
+            <!-- <div class="col-lg-4 col-md-6 portfolio-item filter-web">
             <div class="portfolio-img"><img src="static/assets/img/portfolio/portfolio-2.jpg" class="img-fluid" alt="">
             </div>
             <div class="portfolio-info">
@@ -447,17 +431,18 @@
             </div>
           </div> -->
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-img"><img src="static/assets/img/portfolio/portfolio-3.jpeg" class="img-fluid" alt="">
+            <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+              <div class="portfolio-img"><img src="static/assets/img/portfolio/portfolio-3.jpeg" class="img-fluid"
+                  alt="">
+              </div>
+              <div class="portfolio-info">
+
+                <a href="static/assets/img/portfolio/portfolio-3.jpg" data-gall="portfolioGallery"
+                  class="venobox preview-link" title="App 2"><i class="bx bx-plus"></i></a>
+
+              </div>
             </div>
-            <div class="portfolio-info">
-               
-              <a href="static/assets/img/portfolio/portfolio-3.jpg" data-gall="portfolioGallery"
-                class="venobox preview-link" title="App 2"><i class="bx bx-plus"></i></a>
-             
-            </div>
-          </div>
-<!-- 
+            <!-- 
           <div class="col-lg-4 col-md-6 portfolio-item filter-card">
             <div class="portfolio-img"><img src="static/assets/img/portfolio/portfolio-4.jpg" class="img-fluid" alt="">
             </div>
@@ -469,51 +454,55 @@
             </div>
           </div> -->
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <div class="portfolio-img"><img src="static/assets/img/portfolio/portfolio-5.png" class="img-fluid" alt="">
-            </div>
-            <div class="portfolio-info">
-               
-              <a href="static/assets/img/portfolio/portfolio-5.png" data-gall="portfolioGallery"
-                class="venobox preview-link" title="Web 2"><i class="bx bx-plus"></i></a>
-             
-            </div>
-          </div>
+            <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+              <div class="portfolio-img"><img src="static/assets/img/portfolio/portfolio-5.png" class="img-fluid"
+                  alt="">
+              </div>
+              <div class="portfolio-info">
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-img"><img src="static/assets/img/portfolio/portfolio-6.jpg" class="img-fluid" alt="">
-            </div>
-            <div class="portfolio-info">
-               
-              <a href="static/assets/img/portfolio/portfolio-6.jpg" data-gall="portfolioGallery"
-                class="venobox preview-link" title="App 3"><i class="bx bx-plus"></i></a>
-             
-            </div>
-          </div>
+                <a href="static/assets/img/portfolio/portfolio-5.png" data-gall="portfolioGallery"
+                  class="venobox preview-link" title="Web 2"><i class="bx bx-plus"></i></a>
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-img"><img src="static/assets/img/portfolio/portfolio-7.png" class="img-fluid" alt="">
+              </div>
             </div>
-            <div class="portfolio-info">
-               
-              <a href="static/assets/img/portfolio/portfolio-7.png" data-gall="portfolioGallery"
-                class="venobox preview-link" title="Card 1"><i class="bx bx-plus"></i></a>
-             
-            </div>
-          </div>
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-img"><img src="static/assets/img/portfolio/portfolio-8.jpg" class="img-fluid" alt="">
-            </div>
-            <div class="portfolio-info">
-               
-              <a href="static/assets/img/portfolio/portfolio-8.jpg" data-gall="portfolioGallery"
-                class="venobox preview-link" title="Card 3"><i class="bx bx-plus"></i></a>
-             
-            </div>
-          </div>
+            <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+              <div class="portfolio-img"><img src="static/assets/img/portfolio/portfolio-6.jpg" class="img-fluid"
+                  alt="">
+              </div>
+              <div class="portfolio-info">
 
-          <!-- <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+                <a href="static/assets/img/portfolio/portfolio-6.jpg" data-gall="portfolioGallery"
+                  class="venobox preview-link" title="App 3"><i class="bx bx-plus"></i></a>
+
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+              <div class="portfolio-img"><img src="static/assets/img/portfolio/portfolio-7.png" class="img-fluid"
+                  alt="">
+              </div>
+              <div class="portfolio-info">
+
+                <a href="static/assets/img/portfolio/portfolio-7.png" data-gall="portfolioGallery"
+                  class="venobox preview-link" title="Card 1"><i class="bx bx-plus"></i></a>
+
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+              <div class="portfolio-img"><img src="static/assets/img/portfolio/portfolio-8.jpg" class="img-fluid"
+                  alt="">
+              </div>
+              <div class="portfolio-info">
+
+                <a href="static/assets/img/portfolio/portfolio-8.jpg" data-gall="portfolioGallery"
+                  class="venobox preview-link" title="Card 3"><i class="bx bx-plus"></i></a>
+
+              </div>
+            </div>
+
+            <!-- <div class="col-lg-4 col-md-6 portfolio-item filter-web">
             <div class="portfolio-img"><img src="static/assets/img/portfolio/portfolio-9.jpg" class="img-fluid" alt="">
             </div>
             <div class="portfolio-info">
@@ -524,10 +513,10 @@
             </div>
           </div> -->
 
-        </div>
+          </div>
 
-      </div>
-    </section> 
+        </div>
+      </section>
 
 
       <!-- ======= Team Section ======= -->

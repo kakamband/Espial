@@ -345,7 +345,7 @@ body {
     overflow: hidden;
     position: relative;
     /* background: linear-gradient(0deg, #2a2c39 0%, #33364a 100%); */
-    background: url("../assets/img/bg.jpeg") center center no-repeat;
+    background: url("../assets/img/bg.jpg") center center no-repeat;
     background-size: cover;
     background-attachment: fixed;
     padding: 0;

@@ -1,15 +1,15 @@
-<html>
-
-<head>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script>
-        $(function () {
-          $('form').on('submit', function (e) {
-  
+{%extends 'base.html'%}
+{%load static%}
+{%block title%}Profile{%endblock title%}
+{%block link%}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(function () {
+        $('form').on('submit', function (e) {
             e.preventDefault();
-  
+
             $.ajax({
-              url: '',
+                url: '',
                 data: $('form').serialize(),
                 cache: false,
                 method: 'POST',
@@ -25,7 +25,7 @@
                     if (data.status == 403) {
                         $(".response").html(data.message);
                     } else if (data.status == 200) {
-                        $(".response").html("Token: "+data.token);
+                        $(".response").html("Token: " + data.token);
                     }
                     else {
                         $(".response").html("Something went wrong");
@@ -36,22 +36,15 @@
                     console.log('Cannot retrieve data.');
                 }
             });
-  
-          });
-  
         });
-      </script>
-    
-</head>
-
-<body>
-    <form method="POST" id="token_form">
-        {%csrf_token%}
-        <input type="text" name="name">
-        <input type="submit" value="Generate Token">
-    </form>
-    <div class="response"></div>
-    
-</body>
-
-</html>
+    });
+</script>
+{%endblock link%}
+{%block content%}
+<form method="POST" id="token_form">
+    {%csrf_token%}
+    <input type="text" name="name">
+    <input type="submit" value="Generate Token">
+</form>
+<div class="response"></div>
+{%endblock content%}

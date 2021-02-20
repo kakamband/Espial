@@ -11,9 +11,6 @@ User = get_user_model()
 def HomeView(request):
     return render(request, 'home.html')
 
-def TmpView(request):
-    return render(request, 'login.html')
-
 @csrf_exempt
 def Notify(request):
     if request.method == "POST":
