@@ -6,7 +6,6 @@ from django.contrib.auth import get_user_model
 from django.shortcuts import render, redirect
 User=get_user_model()
 LOCK_URLS = (
-            "/notify/",
             "/accounts/profile/",
              )
 LOGIN_URL = ("/accounts/login/",)
