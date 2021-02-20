@@ -1,10 +1,13 @@
 # KU
 
 ## Introduction 
-
-**Surveillance** is an integral part of security and control. The job requires extended periods of looking into multiple video footages for an undesirable incident or evidence following the incident, which proves to be highly inefficient considering the massive amount of footages. This manual task provides evidence in court but is rarely used to prevent ***crime or react to it in real-time***.
+Surveillance ensures safety and security, an integral part of every individual’s life, Thus Cameras are installed everywhere. But still news of crime resonates throughout the year. Who is looking at those footage prior to an incident? They appear to have become just an evidence collecting source. 
  
 ### 🔭 &nbsp; About this Project
+
+Through this project, we aim to convert a **CCTV surveillance from an evidence collection device to a crime prevention and detection tool to ensure safety and security**.
+The system will detect and simultaneously alert any suspicious activity captured by the camera through a notification which will be sent to the concerned authority. The technologies encompasses domains of Computer Vision and Deep Learning models like **CNN, R-CNN, LSTM**. The dataset consists of 2000+ videos scraped off internet and categorized into ***violent and non-violent*** activities. 
+<br>
 
 
 ### 🛠 &nbsp;Tech Stack
@@ -18,3 +21,25 @@
 ### 💼 &nbsp; Working
  
  
+ 
+ 
+ 
+###  ✍️ &nbsp; Current Progress
+We tried and tested various architectures for this project. A brief summary and stats for each is given below:
+1. **Customised CNN Model**: The customised CNN model with optimised parameters performed well on the training and sufficiently good in the test dataset. The architecture is currently being used by the website and test.ipynb file.
+
+    - Accuracy on training: 0.7990
+    - Loss on training: 0.4292
+    - Val_loss: 0.7605
+    - Val_accuracy: 0.6680
+    - Optimizer: Adam
+    - Loss: BinaryCrossEntropy
+    - Epochs: 50
+    - steps_per_epoch: 50 
+    <br><br>
+    <img src="stats/CustomisedCNN.png">
+    <br><br>
+
+
+### ⚙️ &nbsp; Ultimate Objective
+The model uses the technique of Multiple Object Detection with Localization tracking the movement of people and then categorizing it into violent or non-violent behavior. Our proposed solution will ensure Public Safety and security without any human toil with an instant alert to the concerned authorities. With our deep learning model integrated with your application, and personalised user login which detects and sends the notifications in real time to the concerned authority in case any suspicious activity is detected. We aim to curb the constant rise of criminal activities, their unexpectedness, and scope of harm.
