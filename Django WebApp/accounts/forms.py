@@ -35,11 +35,13 @@ class CustomAuthenticationForm(AuthenticationForm):
                                         'class':'text-box',
                                         'autocomplete':'username',
                                         'id':'email',
+                                        'placeholder':'Email Address',
                                         }) 
         self.fields['password'].widget.attrs.update({
                                         'required':'True',
                                         'class':'text-box',
                                         'autocomplete':'password',
+                                        'placeholder':'Password',
                                         }) 
     class Meta:
         model = User

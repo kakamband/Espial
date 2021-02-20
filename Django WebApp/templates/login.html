@@ -1,0 +1,63 @@
+{%extends 'base.html'%} {%load static%} {%block title%}Login{%endblock title%}
+{%block link%}
+<link rel="stylesheet" href='{%static "style/login.css"%}' />
+<link rel="stylesheet" href='{%static "style/signup.css"%}' />
+<link rel="stylesheet" href='{%static "style/snackbar.css"%}' />
+<script src="{%static 'assets/js/snack.js'%}"></script>
+{%endblock link%}
+{%block content%}
+<div class="container-fluid d-flex align-items-center justify-content-between" style="height: calc(90vh - 70px); padding: 0;">
+    <div class="row w-100" style="margin-left: 0;">
+        <div class="col-md-8"></div>
+        <div class="col-md-4 slide-box">
+            <div class="row py-3">
+                <div class="form-box col-12 col-lg-10">
+                    <div class="heading">Login</div>
+                    <!-- Form Comes here!!!!-->
+                    <form method="post">
+                        {% csrf_token %} {% for field in f_login %}
+                        <div class="login_field">
+                            {{ field.label_tag }}<br />
+                            {{ field }}
+                        </div>
+                        {% endfor %}
+
+                        <input type="submit" class="submit_btn my-3" value="Login" name="submit" />
+                    </form>
+                </div>
+                <div class="col-lg-2"></div>
+            </div>
+        </div>
+    </div>
+</div>
+{%if f_login.non_field_errors%}
+<div id="snackbar">Invalid Login Credentials</div>
+<script>
+    snack();
+</script>
+{%endif%} {%endblock content%}
+<div class="row reg_box">
+    <!-- Brand Box -->
+    <div class="col-md-7" style="padding: 0;"></div>
+
+    <div class="col-md-5 slide-box" style="padding: 0;">
+        <div class="row bg_box">
+            <div class="col-lg-8">
+                <div class="w-100 form-box">
+                    <div class="heading">Login</div>
+                    <!-- Form Comes here!!!!-->
+                    <form method="post">
+                        {% csrf_token %} {% for field in f_login %}
+                        <div class="login_field">
+                            {{ field.label_tag }}<br />
+                            {{ field }}
+                        </div>
+                        {% endfor %}
+
+                        <input type="submit" class="submit_btn my-3" value="Login" name="submit" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

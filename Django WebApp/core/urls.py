@@ -5,6 +5,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('', HomeView, name='home'),
+    path('tmp', TmpView, name='home'),
     path('notify/', Notify, name='notification'),
     path('stream/<f_name>', Streamer, name="stream"),
 

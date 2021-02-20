@@ -1,0 +1,128 @@
+* {
+  outline: 0;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+}
+input:-webkit-autofill {
+  -webkit-text-fill-color: white !important;
+}
+.brand_box {
+  margin: 8vh 0 4vh 4vh;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding-top: 8vh;
+  padding-bottom: 8vh;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+  transition: background-color 0.3s linear;
+}
+.brand_box:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+.col-md-6 {
+  padding: 0;
+}
+.submit_btn {
+  background-color: rgba(236, 20, 56, 0.95);
+  outline: 0;
+  padding: 10px;
+  border-radius: 15px;
+  font-weight: 600;
+  width: 100%;
+  border: 0;
+  color: #fff;
+  transition: background-color 0.4s linear;
+}
+.submit_btn:hover {
+  background-color: rgba(200, 13, 56, 0.9);
+}
+.heading {
+  font-size: 4vh;
+  font-weight: 700;
+  padding: 1vh;
+}
+.brand_text {
+  color: rgba(0, 0, 0, 0.85);
+}
+.error-text {
+  padding-top: 6vh;
+  margin-top: 5vh;
+  font-size: 1.8vh;
+  color: grey;
+}
+.slide-box {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+.login_field,
+.signup_field {
+  margin: 0 1vh 2vh;
+  padding: 0.5vh;
+  font-family: sans-serif;
+}
+label {
+  margin-bottom: 1vh;
+}
+.text-box {
+  border: 0;
+  border-bottom: 1px solid #777;
+  background: 0 0;
+  transition: border 0.3s linear;
+  width: 100%;
+}
+.text-box:focus {
+  border-bottom: 1px solid rgba(238, 19, 63, 0.746);
+  color: #000;
+}
+.switch {
+  background-color: #f5f5f5;
+  text-align: center;
+  padding: 10px;
+  border-radius: 15px;
+  width: 100%;
+  transition: background-color 0.5s linear;
+}
+a {
+  color: rgba(236, 20, 56, 0.95);
+  transition: color 0.1s linear;
+}
+a:hover {
+  color: #f5f5f5;
+  text-decoration: none;
+}
+.switch:hover {
+  background-color: rgba(236, 20, 56, 0.95);
+}
+
+body {
+  background-color: #eee;
+}
+.pt-2 {
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  .left,
+  footer {
+    display: none;
+  }
+  footer {
+    visibility: hidden;
+  }
+  .reg_box {
+    height: 90vh;
+  }
+  .signup_field {
+    margin: 2vh;
+  }
+  .error-text {
+    padding: 2vh;
+    margin-top: 0;
+  }
+  .errorlist {
+    margin-bottom: 0;
+  }
+}

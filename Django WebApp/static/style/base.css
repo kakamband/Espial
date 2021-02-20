@@ -86,7 +86,7 @@ body {
     transition: all 0.5s;
     z-index: 997;
     transition: all 0.5s;
-    background: rgba(42, 44, 57, 0.9);
+    background: rgba(15, 10, 10, 0.9);
   }
   
   #header.header-transparent {

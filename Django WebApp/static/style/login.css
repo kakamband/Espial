@@ -1,0 +1,13 @@
+body{
+    background: url("../assets/img/bg2_login.jpg") center center no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+input[type="email"], textarea{
+    background-color: transparent!important;
+    color: white!important;
+}
+input[type="password"], textarea{
+    background-color: transparent!important;
+    color: white!important;
+}

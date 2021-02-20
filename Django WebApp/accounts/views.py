@@ -12,7 +12,6 @@ User = get_user_model()
 
 def SignUp(request):
     if request.method == 'POST':
-        # f_login = CustomAuthenticationForm()
         if request.POST.get('submit') == 'Login':
             f_login = CustomAuthenticationForm(data=request.POST)
             if f_login.is_valid():
@@ -26,7 +25,7 @@ def SignUp(request):
     else:
         f_login = CustomAuthenticationForm()
 
-    return render(request, 'initsignup.html', {'f_login': f_login})
+    return render(request, 'login.html', {'f_login': f_login})
 
 def Logout(request):
     logout(request)
