@@ -19,9 +19,8 @@ The system will detect and simultaneously alert any suspicious activity captured
 <br>
 
 ### 💼 &nbsp; Working
- 
- 
- 
+
+ <img src="stats/working.png"><br>
  
  
 ###  ✍️ &nbsp; Current Progress
@@ -38,6 +37,30 @@ We tried and tested various architectures for this project. A brief summary and 
     - steps_per_epoch: 50 
     <br><br>
     <img src="stats/CustomisedCNN.png">
+    <br><br>
+
+2. **VGG Net**: VGGNet Architecture displayed an accuracy of 60% on training and 55% on testing dataset.
+    - Testing Accuracy: 0.5513
+    <br><br>
+    <img src="stats/VGGNet.png">
+    <br><br>
+
+3. **AlexNet**: AlexNet showed accuracy of 57% on training and a similar accuracy on the testing dataset. 
+    - Testing Accuracy: 0.5729
+    <br><br>
+    <img src="stats/AlexNet .png">
+    <br><br>
+
+4. **Inception+CustomisedCNN**: Using transfer learning of Inception Architecture and passing it to CustomisedCNN trained the model with satisfactory results. 
+*Link to model file* : [Google Drive Link](https://drive.google.com/file/d/1yTbm7oMn1znMEOD7X-s9NDqtyvpUZfTe/view?usp=sharing)
+    - Training_accuracy: 89%
+    - Validation_accuracy: 76%
+    - Epochs: 30
+    - Steps per Epoch: 100
+    - Optimizer: RMSprop with LR 0.0001
+    - Loss: Binarycrossentropy
+    <br><br>
+    <img src="stats/CustomisedInceptionV3+CNN.png">
     <br><br>
 
 
