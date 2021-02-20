@@ -20,7 +20,6 @@ from django.views.generic import TemplateView
 urlpatterns = [
     path('', include('core.urls')),
     path('accounts/', include('accounts.urls')),
-    path('appcontent/', include('pwa.urls')),
     path('admin/', admin.site.urls),
     path('webpush/', include('webpush.urls')),
     path('manifest.json',TemplateView.as_view(template_name='pwa/manifest.json',content_type='text/plain')),
