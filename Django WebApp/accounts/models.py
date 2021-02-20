@@ -36,7 +36,14 @@ class User(AbstractUser):
     id = models.UUIDField(primary_key=True, default=uuid4)
     username = None
     email = models.EmailField('email address', unique=True)
-    token = models.UUIDField(default=uuid4, unique=True)
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
     objects = UserManager()
+
+class TokenManager(models.Model):
+    user = models.UUIDField(default = uuid4)
+    name = models.CharField(max_length=50)
+    token = models.UUIDField(default=uuid4, unique=True)
+    
+    def __str__(self):
+        return self.name+" "+str(self.token)

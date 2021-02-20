@@ -30,6 +30,6 @@ class Authenticate():
 
     def getToken(self):
         if self.code == 200:
-            return self.token
+            return self.code
 
         return None

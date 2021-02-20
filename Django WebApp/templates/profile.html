@@ -1,0 +1,83 @@
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(function () {
+          $('form').on('submit', function (e) {
+  
+            e.preventDefault();
+  
+            $.ajax({
+              url: '',
+                data: $('form').serialize(),
+                cache: false,
+                method: 'POST',
+                type: 'POST', // For jQuery < 1.9
+                // beforeSend: function () {
+                //     $('#loading').removeClass("hide")
+                // },
+                // complete: function () {
+                //     $('#loading').addClass("hide");
+                // },
+                success: function (data) {
+                    console.log("Success")
+                    if (data.status == 403) {
+                        $(".response").html(data.message);
+                    } else if (data.status == 200) {
+                        $(".response").html("Token: "+data.token);
+                    }
+                    else {
+                        $(".response").html("Something went wrong");
+                    }
+                    $('input[type="text"],textarea').val('');
+                },
+                error: function () {
+                    console.log('Cannot retrieve data.');
+                }
+            });
+  
+          });
+  
+        });
+      </script>
+    
+</head>
+
+<body>
+    <form method="POST" id="token_form">
+        {%csrf_token%}
+        <input type="text" name="name">
+        <input type="submit" value="Generate Token">
+    </form>
+    <div class="response"></div>
+    <!-- <script>
+        var frm = $('token_form');
+
+        frm.submit(function (e) {
+            e.preventDefault();
+            $.ajax({
+                url: '',
+                data: frm.serialize(),
+                cache: false,
+                method: 'POST',
+                type: 'POST', // For jQuery < 1.9
+                // beforeSend: function () {
+                //     $('#loading').removeClass("hide")
+                // },
+                // complete: function () {
+                //     $('#loading').addClass("hide");
+                // },
+                success: function (data) {
+                    console.log("Success")
+                },
+                error: function () {
+                    console.log('Cannot retrieve data.');
+                }
+            });
+        });
+
+    </script> -->
+</body>
+
+</html>

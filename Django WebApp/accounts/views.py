@@ -6,6 +6,7 @@ import csv
 import json
 from uuid import uuid4
 from django.views.decorators.csrf import csrf_exempt
+from .models import TokenManager
 
 User = get_user_model()
 
@@ -31,17 +32,30 @@ def Logout(request):
     logout(request)
     return redirect('home')
 
-@csrf_exempt
-def getToken(request):
-    if request.method == 'POST':
-        f_login = CustomAuthenticationForm(data=request.POST)
-        if f_login.is_valid():
-            user = f_login.get_user()
-            login(request, user)
-            token = user.token
-            return JsonResponse({'status': 200, 'message': 'Logged In', 'token': token})
+def ProfileView(request):
+    if request.method == "POST":
+        if request.user.is_authenticated:
+            name = request.POST["name"]
+            user = request.user.id
+            token = uuid4()
+            TokenManager(user=user, name=name, token=token).save()
+            return JsonResponse({'status': 200, 'token': token})
 
         return JsonResponse({'status': 403, 'message': 'Access Denied'})
+        
+    return render(request, 'profile.html')
 
-    return JsonResponse({'status': 403, 'message': 'Invalid Request'})
+# @csrf_exempt
+# def getToken(request):
+#     if request.method == 'POST':
+#         f_login = CustomAuthenticationForm(data=request.POST)
+#         if f_login.is_valid():
+#             user = f_login.get_user()
+#             login(request, user)
+#             token = user.token
+#             return JsonResponse({'status': 200, 'message': 'Logged In', 'token': token})
+
+#         return JsonResponse({'status': 403, 'message': 'Access Denied'})
+
+#     return JsonResponse({'status': 403, 'message': 'Invalid Request'})
 # Create your views here.
