@@ -41,8 +41,10 @@ def ProfileView(request):
             return JsonResponse({'status': 200, 'token': token})
 
         return JsonResponse({'status': 403, 'message': 'Access Denied'})
-        
-    return render(request, 'profile.html')
+    
+    dv = TokenManager.objects.filter(user = request.user.id)
+    total = len(dv)
+    return render(request, 'profile.html', {'total': total, 'table': dv})
 
 # @csrf_exempt
 # def getToken(request):

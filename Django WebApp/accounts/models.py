@@ -44,6 +44,6 @@ class TokenManager(models.Model):
     user = models.UUIDField(default = uuid4)
     name = models.CharField(max_length=50)
     token = models.UUIDField(default=uuid4, unique=True)
-    
+    url = models.URLField(default = "https://www.google.com/")
     def __str__(self):
         return self.name+" "+str(self.token)

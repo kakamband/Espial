@@ -41,9 +41,44 @@
 </script>
 {%endblock link%}
 {%block content%}
+<h2>Profile</h2>
+Email ID: {{user}}<br>
+Date Joined: {{user.date_joined}}<br>
+Devices Registered: {{total}}<br>
+{%if table%}
+<table>
+    <tr>
+        <th>
+            Serial Number
+        </th>
+        <th>
+            Device Name
+        </th>
+        <th>
+            URL
+        </th>
+    </tr>
+{%for i in table%}
+    <tr>
+        <td>
+            {{forloop.counter}}
+        </td>
+        <td>
+            {{i.name}}
+        </td>
+        <td>
+            <a href="{{i.url}}" rel="noreferrer" target="_blank">Click to View</a>
+        </td>
+    </tr>
+{%endfor%}
+</table>
+{%endif%}
+<br>
+Register New Device
 <form method="POST" id="token_form">
     {%csrf_token%}
-    <input type="text" name="name">
+    <input type="text" name="name" placeholder="Name for your Camera"><br><br>
+    <input type="text" name="url" placeholder="Optional"><br><br>
     <input type="submit" value="Generate Token">
 </form>
 <div class="response"></div>
