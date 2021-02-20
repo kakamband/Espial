@@ -1,4 +1,4 @@
-const CACHE = 'cache_vis1';
+const CACHE = 'cache_vis2';
 const filestoCache = [
                       
                       ]
