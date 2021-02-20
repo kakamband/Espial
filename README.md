@@ -20,7 +20,7 @@ The system will detect and simultaneously alert any suspicious activity captured
 
 ### 💼 &nbsp; Working
 
- <img src="stats\working.PNG"><br>
+ <img src="stats\working.png"><br>
  
  
 ###  ✍️ &nbsp; Current Progress
