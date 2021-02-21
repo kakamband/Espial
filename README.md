@@ -23,7 +23,17 @@ The system will detect and simultaneously alert any suspicious activity captured
  <img src="stats/working.png">
  <br><br>
  The system is majorly governed by our Website, with all the processes working in sync with it. The current tensorflow model is hosted on the camera itself, with periodic notiffications being pushed to the server. A valid auth key is used to verify the cameras.<br>
- 
+
+To test our website at [Link](https://trial-ku.herokuapp.com/), follow these steps:
+- Login using the credentials stored in **credentials.txt**.
+- Subscibe to notifications for real-time updates.
+- You can also install our WebSite as an App in your system. A prompt will be shown seeking permission to install.
+- Register a camera by going into Profile section of WebAPP.
+- Enter the token generated in test.py file and watch the magic happen.
+
+*Note :* Currently notifications work only for Android Devices.
+
+<br>
 To see the test results for our model, please follow the following steps:
 - Execute the file labelled test.py using command line
     > python3 test.py
