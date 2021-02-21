@@ -34,6 +34,7 @@ To test our website at [Link](https://trial-ku.herokuapp.com/), follow these ste
 *Note :* Currently notifications work only for Android Devices.
 
 <br>
+
 To see the test results for our model, please follow the following steps:
 - Execute the file labelled test.py using command line
     > python3 test.py
