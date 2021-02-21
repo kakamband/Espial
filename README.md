@@ -32,10 +32,11 @@ To see the test results for our model, please follow the following steps:
 
 *Note :* This Website required **OpenCV, Numpy, Django** and **Tensorflow** installed on the host machine. To install these dependencies, run the following command
 > pip3 install -r requirements.txt
-<br><br>
+
+<br>
  
 ###  ✍️ &nbsp; Current Progress
-We tried and tested various architectures for this project. A brief summary and stats for each is given below:
+We tried and tested various architectures for this project. The complete acrchitecture can be found at **ModelArchitecture.ipynb**. A brief summary and stats for each is given below:
 1. **Customised CNN Model**: The customised CNN model with optimised parameters performed well on the training and sufficiently good in the test dataset. The architecture is currently being used by the website and test.ipynb file.
 
     - Accuracy on training: 0.7990
