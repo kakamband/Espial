@@ -26,7 +26,7 @@ def Notify(request):
                 obj = Document.objects.filter(user = cam.user).order_by('uploaded_at').last()
                 user = User.objects.get(id=cam.user)
                 payload = {"head": head, "body": body,
-                            "icon": "https://i.imgur.com/dRDxiCQ.png", "url": 'http://127.0.0.1:8000/stream/'+str(obj.vid.url).split('/')[-1]}
+                            "icon": "https://i.imgur.com/2IG0Lcp.png", "url": 'http://127.0.0.1:8000/stream/'+str(obj.vid.url).split('/')[-1]}
                 send_user_notification(user=user, payload=payload, ttl=1000)
                 return JsonResponse({'status': 200, "message": "Notifier Started"})
 

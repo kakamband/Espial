@@ -1,13 +1,13 @@
-# KU
+# Espial
 
 ## Introduction 
-Surveillance ensures safety and security, an integral part of every individual’s life, Thus Cameras are installed everywhere. But still news of crime resonates throughout the year. Who is looking at those footage prior to an incident? They appear to have become just an evidence collecting source. 
+Surveillance ensures safety and security, an integral part of every individual’s life, Thus Cameras are installed everywhere. But still news of crime resonates throughout the year. Who is looking at those footage prior to an incident? They appear to have become just an evidence collecting source. <br><br>
  
 ### 🔭 &nbsp; About this Project
 
 Through this project, we aim to convert a **CCTV surveillance from an evidence collection device to a crime prevention and detection tool to ensure safety and security**.
 The system will detect and simultaneously alert any suspicious activity captured by the camera through a notification which will be sent to the concerned authority. The technologies encompasses domains of Computer Vision and Deep Learning models like **CNN, R-CNN, LSTM**. The dataset consists of 2000+ videos scraped off internet and categorized into ***violent and non-violent*** activities. 
-<br>
+<br><br>
 
 
 ### 🛠 &nbsp;Tech Stack
@@ -16,12 +16,23 @@ The system will detect and simultaneously alert any suspicious activity captured
 ![Python](https://img.shields.io/badge/python%20-%2314354C.svg?&style=for-the-badge&logo=python&logoColor=white)&nbsp;
 ![HTML](https://img.shields.io/badge/html5%20-%23E34F26.svg?&style=for-the-badge&logo=html5&logoColor=white)&nbsp;
 ![CSS](https://img.shields.io/badge/css3%20-%231572B6.svg?&style=for-the-badge&logo=css3&logoColor=white)&nbsp;
-<br>
+<br><br>
 
 ### 💼 &nbsp; Working
 
- <img src="stats/working.png"><br>
+ <img src="stats/working.png">
+ <br><br>
+ The system is majorly governed by our Website, with all the processes working in sync with it. The current tensorflow model is hosted on the camera itself, with periodic notiffications being pushed to the server. A valid auth key is used to verify the cameras.<br>
  
+To see the test results for our model, please follow the following steps:
+- Execute the file labelled test.py using command line
+    > python3 test.py
+
+<br>
+
+*Note :* This Website required **OpenCV, Numpy, Django** and **Tensorflow** installed on the host machine. To install these dependencies, run the following command
+> pip3 install -r requirements.txt
+<br><br>
  
 ###  ✍️ &nbsp; Current Progress
 We tried and tested various architectures for this project. A brief summary and stats for each is given below:

@@ -5,9 +5,12 @@ from threading import Thread
 from config import *
 
 def notify():
-    data = {"token": "03382f1d-0369-418c-93ba-e8eaa3d40000"}
-    # url = "http://localhost:8000/notify/"
-    url = "https://trial-ku.herokuapp.com/notify/"
+    # Token to be inserted here
+    token = None
+    # token = "32e07-df8-47b-800-e1ab85df7"
+    data = {"token": token}
+    url = "http://localhost:8000/notify/"
+    # url = "https://trial-ku.herokuapp.com/notify/"
     with open(FILE_PATH, 'rb') as f:
         response = requests.post(url, data = data, files={'video': f})
 
@@ -63,8 +66,8 @@ while (cv2.waitKey(1) == -1):
             cycler = REC_FRAME
             rec = False
             out.release()
-            t1 = Thread(target=notify)
-            t1.start()
+            # t1 = Thread(target=notify)
+            # t1.start()
 
     if final > THRESH:
         string = "Suspicious "
@@ -73,10 +76,10 @@ while (cv2.waitKey(1) == -1):
         string = "Peaceful "
 
     # Showing Frames
-    # string += str(final)
-    # color = (0, 0, 255) if final > THRESH else (255, 0, 0)
-    # frame = cv2.putText(frame, string, org, font, fontScale, color, thickness, cv2.LINE_AA)
-    # cv2.imshow("Video", frame)
+    string += str(final)
+    color = (0, 0, 255) if final > THRESH else (255, 0, 0)
+    frame = cv2.putText(frame, string, org, font, fontScale, color, thickness, cv2.LINE_AA)
+    cv2.imshow("Video", frame)
     fc += 1
 
 vid.release()

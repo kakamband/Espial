@@ -3,3 +3,6 @@ gunicorn
 django-webpush
 django_heroku
 six
+tensorflow
+numpy
+opencv-python

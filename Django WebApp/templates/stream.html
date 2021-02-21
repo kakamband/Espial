@@ -2,8 +2,30 @@
 {%load static%}
 {%block title%}Stream{%endblock title%}
 {%block link%}
-<link rel="stylesheet" href='{%static "style/stream.css"%}' />
+<link rel="stylesheet" href='{%static "style/profile.css"%}' />
 {%endblock link%}
 {%block content%}
-    <a href="{{vid_url}}"><button>Download Preview</button></a>
+<div class="container" style="margin-top: 100px;">
+    <h2>
+        Summary
+    </h2>
+    <table class="table table-striped mt-4">
+        <tr>
+            <td>
+                <h5>Link to Preview</h5>
+            </td>
+            <td>
+                <a href="{{vid_url}}"><button>Preview</button></a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h5>Registered URL</h5>
+            </td>
+            <td>
+                No valid registered URL
+            </td>
+        </tr>
+    </table>
+</div>
 {%endblock content%}
